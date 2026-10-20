@@ -1,6 +1,6 @@
 # Reference cases
 
-Three real revamps behind this skill. Read them for how decisions were made and what went wrong — not as looks to copy. Each product's answer was different because its users and domain were.
+Four real projects behind this skill. Read them for how decisions were made and what went wrong — not as looks to copy. Each product's answer was different because its users and domain were.
 
 ## 1. An internal operations console (healthcare admin)
 
@@ -52,3 +52,24 @@ Three real revamps behind this skill. Read them for how decisions were made and 
 **Why its borders work.** A measured lightness ladder with the border a step above every surface; greys tinted toward the accent; one 1px weight where interaction changes colour, not weight; dividers and pressable outlines use different colours (a divider-coloured outline button looked like plain text); hairline rows instead of a card per block; borders instead of shadows on black; a single signature device (an offset outline frame) reserved for the few things meant to be pressed first.
 
 **What went wrong.** A new marketing site shipped without anyone looking at it and was rated 1/10: crammed cards with no sign they were clickable, gaps so large it looked generated, drift from the owner's sketch, the wrong audience named. The rule since: screenshot at phone and desktop width before reporting, and follow the owner's sketch before improving on it. Other fixes: fold rarely used controls, use the desktop's width, redraw native controls for dark mode, self-host fonts.
+
+## 4. A research SaaS run in one shot (what the gates exist for)
+
+**Context.** An owner asked an agent to redesign a research product (landing page and app) following an earlier version of this skill, in one go.
+
+**What went wrong.**
+- **Incomplete intake.** The agent asked about build approach, colours, scope and switching, but not what the project was to the owner, density, dark mode, what "looks better" meant, references, navigation, logo rules, screen sizes or sample data. The owner had to ask whether it had asked everything.
+- **Prototype skipped.** It wrote the plan first and built mockups only when asked.
+- **The first mockups were the tells:** gradients, glows, drop shadows, a centred hero, three icon-in-a-box feature cards, gradient placeholder thumbnails with pills, fallback fonts (Georgia, Times), hairline boxes everywhere, purple on everything. It hadn't run the craft checklist on its own output. The owner spent five rounds removing tells one at a time.
+
+**What finally worked.**
+- The owner named real products; the agent fetched real screenshots with a headless browser, wrote a take/leave table (large light-weight geometric sans, pill controls, tonal fills instead of borders, one icon family, colour only on actions, the real product at full fidelity) and rebuilt from it. Building from references was the turning point.
+- A real typeface file embedded, and one icon library at one stroke weight.
+- The hero showed the real product screen (result cards, duration badges, multiplier chips).
+- Brand colour plus a few sharp meaning hues, only on icons, chips and data, with every pair contrast-tested.
+- Flat depth: tone plus 1px lines; no gradients, shadows or glows.
+- Every render screenshotted and looked at before presenting, fixing obvious bugs first.
+- One self-contained HTML prototype with switches for direction, page and palette, so the owner could answer in one message.
+- A foundation step before screens: tokens, a style-guide page, token tests that fail on raw colours, gradients, shadows and low contrast.
+
+**Lesson.** Advice gets skipped under pressure; gates don't. Hence the coverage table, the references and prototype gates, the self-review loop, the positive requirements, full-pass feedback and the viewport sweep.

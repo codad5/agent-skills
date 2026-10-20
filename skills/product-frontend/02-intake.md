@@ -1,8 +1,8 @@
 # Phase 1 — Intake
 
-Goal: settle the decisions that change the outcome, in one focused round, without asking anything the code already told you.
+Goal: settle the decisions that change the outcome, in one focused round, without asking anything the code already told you, and prove coverage with a printed table (gate G1).
 
-This is not a fixed questionnaire. Below is a bank of decision areas. For each, Phase 0 tells you whether to skip it (answered), ask narrowly (partly answered) or ask fully (unknown). The questions you actually send should read as if written for this project — the options come from what you found, not from this file.
+Twelve items are mandatory every time (the coverage gate below). Beyond those, this is not a fixed questionnaire: below is a bank of decision areas. For each, Phase 0 tells you whether to skip it (answered), ask narrowly (partly answered) or ask fully (unknown). The questions you actually send should read as if written for this project — the options come from what you found, not from this file.
 
 ## How to ask
 
@@ -12,6 +12,38 @@ This is not a fixed questionnaire. Below is a bank of decision areas. For each, 
 - **Build options from context.** Not "pick a colour", but "keep your mint as the brand hue (recommended), shift it deeper for contrast, or explore a new hue — here's why I'd keep it."
 - **Say what you assumed.** List the things you didn't ask because the code answered them, so the person can correct one line instead of answering ten questions.
 - **Their words beat your guesses.** If the person states a preference, it outranks your recommendation; you may still say once, plainly, what you'd do differently and why.
+
+## The coverage gate (G1, blocking)
+
+Intake is done only when every mandatory item below has a status, and you've **printed the table in chat**. Fill it from the code and docs first, then ask every Unknown item in **one round**, each with options and a recommendation. **Don't start references, mockups or a plan while any item is Unknown.** If the person skips a question, write your assumption in words, mark it Assumed and tell them; they can correct one line.
+
+| # | Item (mandatory) | How to ask |
+|---|---|---|
+| 1 | **What the project is to them** | MVP for speed, startup to scale, client project, long-lived product, side project (Q0a) |
+| 2 | **Track** | UI only, code only, both (Q0) |
+| 3 | **Scope** | New, revamp, adjust, keep the layout and polish (Q1) |
+| 4 | **Density** | Airy, comfortable or compact, per surface |
+| 5 | **Light, dark or both**, and the default | |
+| 6 | **What "better" means to them** | Multi-select: premium, friendly, simple, rich, calm, bold, plus their own words |
+| 7 | **References** | 2–3 products they love and one they dislike, by name or screenshot. If none, you'll find references and they confirm ([04](04-directions-and-proposals.md) §1) |
+| 8 | **Navigation style** | Full sidebar, icon rail, collapsible sidebar, top bar, tabs; bottom bar on phones |
+| 9 | **Logo and brand rules**, especially ones that conflict with the redesign | Fixed colours, fonts, logo files. If an instruction file locks colours or styles, ask whether the lock applies to the current UI only or to the new one too |
+| 10 | **Device and window priorities** | Phone, tablet, laptop, large monitor; short or embedded windows |
+| 11 | **Sample data** | Acceptable in prototypes? In the app? On marketing pages? How it's labelled |
+| 12 | **Tone of your replies** | Brief or detailed; whether they want praise, options, or just the changes |
+
+Add any decision-bank item (below) that Phase 0 flagged as open for this project.
+
+Print it like this, before Phase 2:
+
+| # | Item | Status | Answer or assumption |
+|---|---|---|---|
+| 1 | Project | Answered | Long-lived product (README, roadmap) |
+| 4 | Density | Assumed | Compact for the app, airy for marketing: say if not |
+| 7 | References | Unknown | → asked in this round |
+| … | | | |
+
+Re-print the table whenever an answer changes. Observed: an agent asked about colours and scope but skipped density, dark mode, references and what "better" meant; the owner had to ask whether it had asked everything, and the first mockups missed on every skipped item.
 
 ## Q0a — What the project is to them (always first)
 
@@ -101,3 +133,4 @@ Ask the ones Phase 0 left open. Each lists why it matters and a good default to 
 - Don't present one option. Two or three, contrasting, with a recommendation.
 - Don't recommend a redesign when the problem is the code, or a rewrite when the problem is the look.
 - Don't start building because "the request sounds clear enough". A scope or feel mismatch wastes a whole pass.
+- Don't move to Phase 2 without printing the coverage table, or with any mandatory item Unknown.

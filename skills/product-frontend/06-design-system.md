@@ -156,6 +156,7 @@ The full rules with examples are in [09-layout-rules.md](09-layout-rules.md). Of
 Lint, because humans and AI completions default to margins and raw colours:
 
 - errors for margins/`space-*`, arbitrary values, raw colours, `any`;
+- **token tests that fail the build** on raw colours outside the token files, gradients and shadows that aren't tokens assigned by the surface system, and any text/background pair under the contrast target in either theme;
 - `no-restricted-imports` for vendor UI outside the wrapper folder and for old UI code from new code;
 - stylelint (or equivalent) keeping token definitions in the token files;
 - grep gates in handoffs: free-floating blur orbs = 0, `dark:` overrides in pages = 0 (tokens handle theme), monospace only for identifiers.

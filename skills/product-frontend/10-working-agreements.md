@@ -10,6 +10,8 @@ How to work alongside the person through every phase. These are defaults: if the
 - **Start small and ask why.** Lead with the smallest change at the right place; put extras under "optional"; ask what's driving the request when it isn't clear.
 - **Update after every phase or commit:** done, what's left of the whole job, next. Short, scannable, naming the repo when several are involved. Then keep going unless you've reached a review point.
 - **Stop only for real decisions.** Settle minor blockers yourself and log them; stop for anything touching money, security, data loss, permissions, or a product or design decision.
+- **Match the reply tone the person chose** at intake (brief or detailed, with or without praise). When unsure: no praise, lead with what changed and why.
+- **Unattended runs** follow the protocol in [07](07-plan-and-build.md) §7: contract first, shared core yourself, precise briefs for sub-agents, verify everything yourself.
 - **Push back with options** when an instruction looks wrong: label them "(current)", "(your pick)", "(recommended)", give the reason, then follow the person's call.
 
 ## Size the work honestly

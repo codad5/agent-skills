@@ -2,9 +2,9 @@
 
 Goal: an approved, phased plan, then the work built one phase and one screen at a time, each verified and logged, with the person updated after each, so progress survives sessions and any agent can pick it up.
 
-## 1. The plan (write it once the needs are clear; get it approved before building anything bigger than a small fix)
+## 1. The plan (gate G4: written only after the direction is chosen in the prototype, approved before anything is built)
 
-The plan is how the person stays in the loop: they see the whole job, its size, the order, and where they'll be asked to look. Write it as a local Markdown file in the project's docs, not only in chat.
+On the UI track, the plan builds on the direction the person chose in the prototype (G3); if no direction has been chosen yet, go back to [04](04-directions-and-proposals.md). The plan is how the person stays in the loop: they see the whole job, its size, the order, and where they'll be asked to look. Write it as a local Markdown file in the project's docs, not only in chat.
 
 ```md
 # <Product> frontend plan
@@ -47,9 +47,9 @@ Keep it plain: "Payouts waiting for approval: 4" beats "actionable KPI surface".
 
 ## 3. Rollout order
 
-1. **Foundations:** tokens, fonts (self-hosted), theme switching without flash, lint rules, the design-system import alias.
+1. **Foundations (gate G5):** tokens in layers (primitives, then roles), the chosen typeface self-hosted, one icon library, theme switching without flash, lint rules, the design-system import alias, and **token tests that fail** on raw colours, gradients, shadows the surface system doesn't assign, and text pairs under the contrast target ([06](06-design-system.md) §5).
 2. **Primitives**, each with tests (and an accessibility check), then **patterns** (shell, page header, data table, detail layout, states), then **charts**.
-3. **Gallery review with the person.** Nothing screen-level before this.
+3. **A style-guide page** rendering every component in every variant and state, light and dark, self-reviewed ([08](08-craft-checklist.md) §4) and **reviewed with the person.** Nothing screen-level before this.
 4. **Screens**, highest traffic first (home, the main list and its detail), then the rest by area.
 5. **Verification:** end-to-end flows, permissions per role, screenshots light/dark, accessibility.
 6. **Cutover**, then the old UI opt-in or removed.
@@ -63,7 +63,7 @@ Keep it plain: "Payouts waiting for approval: 4" beats "actionable KPI surface".
 5. Design every state: skeleton, empty, error, offline, long values, many rows, zero rows. Give every action instant feedback, optimistic where safe, and check the flows on a throttled network ([14](14-motion-and-feedback.md)).
 6. Wire data through the seam per the agreed rendering model ([05](05-architecture-and-data.md)): view state in the URL, writes validated on both sides. On a code-only track, steps 2–5 don't apply: keep the markup and classes identical and take before/after screenshots.
 7. Check permissions are unchanged (UI and server).
-8. **Verify in a browser** (a dev server only if the person agreed, on a non-default port; see [10](10-working-agreements.md)): phone (360 and 390px) and desktop (1280–1440px), light and dark, long formatted money, slow data. No horizontal scroll on the page. Screenshot.
+8. **Verify in a browser** (a dev server only if the person agreed, on a non-default port; see [10](10-working-agreements.md)): the self-review loop and the 14-size viewport sweep ([08](08-craft-checklist.md) §4–5), light and dark, long formatted values, slow data. Look at the screenshots.
 9. Typecheck, lint, the agreed tests, build. One commit per screen or area, pushed if the project pushes every commit.
 10. Tick the tracker with the commit hash, and post a short update: done, what's left of the whole job, next.
 
@@ -76,11 +76,20 @@ Keep it plain: "Payouts waiting for approval: 4" beats "actionable KPI surface".
 
 ## 6. Feedback rounds
 
-Owner feedback is often vague ("it's just there", "looks generated"). Turn it into concrete levers before changing anything: depth? motion? personality (a ghost icon, a signature element)? hierarchy? density? colour? Propose two or three with your recommendation, try the risky ones in a throwaway preview (light and dark) first, then apply inside the shared component so every screen benefits.
+Decode feedback in full passes ([08](08-craft-checklist.md) §6): when the person says "looks generated", list every tell on the screen, fix them all, re-render and self-review, then show, never one tell per round. Vague feedback ("it's just there") becomes concrete levers (depth, motion, personality, hierarchy, density, colour): propose two or three with a recommendation, try risky ones in a throwaway preview first, then apply inside the shared component so every screen benefits.
+
+## 7. Unattended runs
+
+When the person says "finish it without me" or similar:
+1. **Write an architecture contract first** and save it in the docs: stores and where state lives, the data seam and its adapters, the app shell, component rules (what's shared, what's per screen), styling rules, and test rules.
+2. **Build the shared core yourself:** tokens, primitives, the shell, the data seam, test helpers. Sub-agents work on top of it, not beside it.
+3. **Hand independent areas to sub-agents** (if your environment has them) with a precise brief each: the goal, the files they own, the files they must not touch, the contract to follow, how to test and self-review, and no commits (you commit).
+4. **Verify every result yourself:** read the diff, run the checks, run the self-review loop and viewport sweep, then commit. A sub-agent's "done" isn't done.
+5. **Stop for real decisions only** ([10](10-working-agreements.md)), and leave a clear report of what was built, checked and skipped.
 
 ## What NOT to do
 
-- Don't start building before the plan is approved, or screens before the direction and the gallery are.
+- Don't write the plan before a direction is chosen in the prototype, start building before the plan is approved, or start screens before the style-guide page is reviewed.
 - Don't hide the size of the job. A surprise rewrite halfway through breaks trust; say it in the plan.
 - Don't report a screen done without having seen it at phone and desktop width in both themes.
 - Don't mix old and new UI code in one screen.
