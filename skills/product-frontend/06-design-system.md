@@ -27,26 +27,87 @@ tokens/
 - **Data viz:** a categorical palette in a fixed order, validated for colour-blind separation in both themes (one draft failed on blue next to violet); a single-hue sequential scale for heatmaps.
 - **Tests:** a contrast test that reads the real token files and checks every text/background pair, focus visibility and panel separation in both themes; a drift test for any JS-side colour constants (charts, OG images).
 
-## 2. Surfaces and lines: three systems that all work
+## 2. Surfaces and lines: systems that work
 
-**Tonal (almost borderless).** Content is separated by surface tone, not lines. Calm, few lines, and often what a brand's marketing site already does. Works when:
-- **three tones do the layering:** `canvas` (soft grey page background) → `surface` (panels floating on it) → `surface-sunken` (grey "wells" inside a panel that group related content; inputs). The steps must be far enough apart to read on a cheap screen and close enough to stay calm;
-- **borders are for dividers only:** rows in tables and lists, a header rule. Panels and cards carry no border. To separate two blocks, change the tone or use spacing; never add a border;
-- **emphasis panels use subtle tints** (`accent-subtle`, `info-subtle`, …) instead of a heavier outline;
-- **elevation only for things that float** (menus, popovers, dialogs, toasts): `surface-raised` plus one soft shadow. Panels on the page don't get shadows;
-- **dark mode keeps the same steps inverted**, and panels may take a hairline where tone alone is too low-contrast (dark tones sit closer together);
-- **contrast is checked on all three tones**, not just white. A darker canvas can push muted text and warning colours under 4.5:1, so you may need to darken them a step;
-- **pill controls** (buttons, segmented controls, tabs, badges fully rounded) often go with it, especially when the brand's CTAs are pills.
+How panels, groups and items are separated is the biggest single decision in how a UI feels. Each system below works when it's applied as a system. Pick one per product (two at most, e.g. app and marketing), present two or three that fit in Phase 2, and judge an existing UI by whether it's consistent with its own system, not by whether it matches your favourite. Product names are examples to look at (current at the time of writing; products change), not looks to copy.
 
-**Somewhat borderless (hybrid).** Tonal layering for the page and panels, plus a hairline system only where structure is dense: data tables, settings lists, form sections. Pick this when screens mix calm overviews with dense data. The rule that keeps it coherent: tone separates *areas*, hairlines separate *items inside an area*, and the same element never gets both.
+| System | Separates with | Depth | Best for | Used by |
+|---|---|---|---|---|
+| Tonal, almost borderless | surface tone | soft shadow on floating things only | admin consoles, ops tools, CRMs, SaaS for non-technical staff | Notion, Stripe Dashboard, Close, macOS System Settings |
+| Somewhat borderless (hybrid) | tone for areas, hairlines inside dense areas | soft, floating only | analytics, finance, commerce admin, HR and health records | Shopify admin, Stripe's data pages, Airtable |
+| Bordered hairline | 1px lines on a measured ladder | none or minimal | developer tools, dark creative tools, technical products | Linear, Vercel, GitHub, Raycast, Supabase |
+| Elevated cards | shadows | layered elevation | kanban boards, card-based tools, consumer Android apps | Trello, Jira boards, Google apps (Material) |
+| Spacing only | whitespace and type | none | reading, docs, editorial, public-service forms | Medium, Substack, GOV.UK, Apple's marketing pages |
+| Dark tonal, shadowless | dark grey steps on near-black | none | media consumption, streaming, music, video | Spotify, Netflix, YouTube (dark) |
+| Grouped inset lists | rounded groups on a grey page, hairlines inside | none | mobile settings, forms, account screens | iOS Settings, most native iOS apps |
+| Translucent layers | blur and translucency over content | blur depth | OS-like shells, sidebars and overlays above media | macOS and visionOS, Windows 11 (Mica, Acrylic) |
+| Outlined with hard offset shadows | thick outlines, solid offset shadows | hard, flat | bold-brand marketing, indie and creator products | Gumroad |
 
-**Bordered (hairline system).** Works when it's a system, not decoration:
+### Tonal (almost borderless)
+
+Content is separated by surface tone, not lines. Calm, few lines, and often what a brand's marketing site already does.
+- **Three tones do the layering:** `canvas` (soft grey page background) → `surface` (panels floating on it) → `surface-sunken` (grey "wells" inside a panel that group related content; inputs). Far enough apart to read on a cheap screen, close enough to stay calm.
+- **Borders are for dividers only:** rows in tables and lists, a header rule. Panels and cards carry no border. To separate two blocks, change the tone or use spacing; never add a border.
+- **Emphasis panels use subtle tints** (`accent-subtle`, `info-subtle`, …) instead of a heavier outline.
+- **Elevation only for things that float** (menus, popovers, dialogs, toasts): `surface-raised` plus one soft shadow.
+- **Dark mode keeps the same steps inverted**; panels may take a hairline where dark tones bunch together.
+- **Contrast is checked on all three tones.** A darker canvas can push muted text and warning colours under 4.5:1.
+- **Pill controls** often go with it, especially when the brand's CTAs are pills.
+
+### Somewhat borderless (hybrid)
+
+Tonal layering for the page and panels, plus hairlines only where structure is dense: data tables, settings lists, form sections. For screens that mix calm overviews with dense data. The rule that keeps it coherent: tone separates *areas*, hairlines separate *items inside an area*, and the same element never gets both.
+
+### Bordered (hairline system)
+
+Works when it's a system, not decoration:
 - a measured lightness ladder where the border sits a step above every surface, so one hairline reads on canvas and panel alike;
 - neutrals tinted toward the accent, so lines belong to the palette;
 - one weight (1px; inset ring for inputs, no layout shift); interaction changes colour, not weight;
-- a border's job decides its colour — dividers use `border`, pressable outlines use a stronger `fg-subtle` (a divider-coloured outline button looks like plain text on dark);
+- a border's job decides its colour: dividers use `border`, pressable outlines use a stronger `fg-subtle` (a divider-coloured outline button looks like plain text on dark);
 - hairlines between rows, not a box around every block;
 - on true black, borders replace shadows (dark shadows vanish, light ones glow).
+
+### Elevated cards
+
+Cards lift off the page with shadows; elevation means importance or interactivity (a dragged card rises higher).
+- **A small elevation scale** (2–4 levels as tokens), each with a job: resting card, hovered or dragged card, menu, dialog.
+- **One consistent light source**, soft low-opacity shadows; two layered shadows (a tight one and a wide one) look more natural than one.
+- **Cards are for items** people act on (tasks, files, listings), not for wrapping every section.
+- In dark mode shadows barely show: lighten raised surfaces instead (Material calls this tonal elevation).
+
+### Spacing only
+
+No containers: groups are made by whitespace, alignment and type hierarchy alone.
+- Needs a strict spacing scale with clear steps (tight within a group, wide between groups, widest between sections).
+- Type does the heavy lifting: size, weight and three text colours.
+- Hairlines only where the eye needs help (between list items, above a footer).
+- Breaks down in dense, multi-panel apps; use it for reading and linear flows.
+
+### Dark tonal, shadowless
+
+Near-black background, a few dark grey steps for panels and hover, no shadows and almost no borders; content (artwork, thumbnails) is the colour.
+- Near-black rather than pure black, unless the product is about media on OLED screens; pure black behind white text can smear while scrolling on some displays.
+- Hover and selection lift the surface one tone step.
+- Text in two or three greys, never pure white for long reading.
+
+### Grouped inset lists
+
+Rounded groups sit on a grey page; rows inside are separated by inset hairlines (starting after the icon); a short caption sits above or below each group.
+- Native-feeling on mobile; works for web settings pages too.
+- One group per topic; destructive actions in their own group at the end.
+
+### Translucent layers
+
+Sidebars, toolbars and overlays blur what's behind them, so content shows through and the layer reads as "above".
+- Only on layers above rich content (media, maps, a canvas); on a plain page it's just low contrast.
+- Keep text contrast with a solid fallback (also for the reduced-transparency setting); blur is costly on low-end devices.
+
+### Outlined with hard offset shadows
+
+Thick dark outlines, solid colour fills and a hard shadow offset down and right; playful and loud.
+- Best as the marketing voice or one signature element inside an app (the main card, the main CTA), not as everyday app chrome.
+- Check colour pairs for contrast; loud palettes fail easily.
 
 **Worked example: why one product uses borders and another doesn't** (OKLCH lightness from two real token sets):
 
@@ -60,7 +121,7 @@ tokens/
 
 More styles and where each fits: [13-ui-styles.md](13-ui-styles.md).
 
-Either way: **radius by role** (pills for pressables, a smaller radius for inputs and wells, larger for panels) and **depth from one consistent mechanism**. Check border and control contrast in light and dark separately: a border 9–10 lightness points off near-white is hard to see even when dark mode is fine.
+Whatever the system: **radius by role** (pills for pressables, a smaller radius for inputs and wells, larger for panels) and **depth from one consistent mechanism**. Check border and control contrast in light and dark separately: a border 9–10 lightness points off near-white is hard to see even when dark mode is fine.
 
 ## 3. Components
 
