@@ -23,12 +23,9 @@ npx skills add codad5/agent-skills --skill product-frontend -a claude-code
 
 # for every project on this machine
 npx skills add codad5/agent-skills --skill product-frontend -g
-
-# see what's in the repo first
-npx skills add codad5/agent-skills --list
 ```
 
-Check what you have with `npx skills list`, and update with `npx skills update`.
+Check what you have installed with `npx skills list`.
 
 ### Manually with git
 
