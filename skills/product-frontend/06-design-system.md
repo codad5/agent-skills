@@ -27,9 +27,18 @@ tokens/
 - **Data viz:** a categorical palette in a fixed order, validated for colour-blind separation in both themes (one draft failed on blue next to violet); a single-hue sequential scale for heatmaps.
 - **Tests:** a contrast test that reads the real token files and checks every text/background pair, focus visibility and panel separation in both themes; a drift test for any JS-side colour constants (charts, OG images).
 
-## 2. Surfaces and lines: two systems that both work
+## 2. Surfaces and lines: three systems that all work
 
-**Tonal (almost borderless).** Canvas (soft grey) → surface (white panels) → sunken (grey wells, inputs). Borders only for dividers inside lists and tables. Elevation (shadow) only for things that float. Emphasis panels use subtle status tints. Calm, few lines.
+**Tonal (almost borderless).** Content is separated by surface tone, not lines. Calm, few lines, and often what a brand's marketing site already does. Works when:
+- **three tones do the layering:** `canvas` (soft grey page background) → `surface` (panels floating on it) → `surface-sunken` (grey "wells" inside a panel that group related content; inputs). The steps must be far enough apart to read on a cheap screen and close enough to stay calm;
+- **borders are for dividers only:** rows in tables and lists, a header rule. Panels and cards carry no border. To separate two blocks, change the tone or use spacing; never add a border;
+- **emphasis panels use subtle tints** (`accent-subtle`, `info-subtle`, …) instead of a heavier outline;
+- **elevation only for things that float** (menus, popovers, dialogs, toasts): `surface-raised` plus one soft shadow. Panels on the page don't get shadows;
+- **dark mode keeps the same steps inverted**, and panels may take a hairline where tone alone is too low-contrast (dark tones sit closer together);
+- **contrast is checked on all three tones**, not just white. A darker canvas can push muted text and warning colours under 4.5:1, so you may need to darken them a step;
+- **pill controls** (buttons, segmented controls, tabs, badges fully rounded) often go with it, especially when the brand's CTAs are pills.
+
+**Somewhat borderless (hybrid).** Tonal layering for the page and panels, plus a hairline system only where structure is dense: data tables, settings lists, form sections. Pick this when screens mix calm overviews with dense data. The rule that keeps it coherent: tone separates *areas*, hairlines separate *items inside an area*, and the same element never gets both.
 
 **Bordered (hairline system).** Works when it's a system, not decoration:
 - a measured lightness ladder where the border sits a step above every surface, so one hairline reads on canvas and panel alike;
