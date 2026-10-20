@@ -9,7 +9,13 @@ Open-source skills for AI coding agents: Claude Code, Cursor, Codex, Gemini CLI,
 | [`product-frontend`](#product-frontend) | Everyday product UI and the code behind it: dashboards, admin tools, chat apps, forms, marketing pages | `npx skills add codad5/agent-skills --skill product-frontend` |
 | [`job-search`](#job-search) | Finding real job listings and preparing every application (it never applies for you) | `npx skills add codad5/agent-skills --skill job-search` |
 
-Install both at once with `npx skills add codad5/agent-skills`.
+See every skill in the repo, with descriptions, without installing anything:
+
+```sh
+npx skills add codad5/agent-skills --list
+```
+
+Install them all at once with `npx skills add codad5/agent-skills`.
 
 ## Before you start
 
