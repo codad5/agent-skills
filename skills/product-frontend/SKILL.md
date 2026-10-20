@@ -39,7 +39,7 @@ Plans, decisions and progress go in the project's docs (match its layout; otherw
 - **No default aesthetic or default architecture.** Purple gradients, Inter and icon grids are tells ([08](08-craft-checklist.md)); so is wrapping every fetch in a client library because that's the habit.
 - **Judge by coherence, not taste.** Borders can be excellent; client rendering can be right. Respect what works, fix what doesn't, say which is which.
 - **Every value is a token; every external call goes through one seam.** No raw colours or arbitrary values in components; no `fetch` in screens; sample data behind the same seam and schemas, never in production.
-- **Every screen designs its states**: loading that matches the content's shape, empty that teaches, error that says what to do, offline, long or odd data.
+- **Every screen designs its states and answers every action**: loading that matches the content's shape, empty that teaches, error that says what to do, offline, long or odd data; every click acknowledged at once even while the network is slow, with optimistic updates where safe and motion that explains ([14-motion-and-feedback.md](14-motion-and-feedback.md)).
 - **Plain language and honesty.** Never invent numbers, testimonials or users; never claim a check you didn't run.
 - **Not done until seen and checked**: screenshots at phone (360–390px) and desktop widths in light and dark, plus typecheck, lint, tests and build. If you couldn't, say so.
 - **Follow the person's sketch or order before improving on it**, and say what you'd change and why.

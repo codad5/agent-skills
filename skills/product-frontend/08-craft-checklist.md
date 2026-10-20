@@ -60,6 +60,7 @@ Review questions: **Could this be any other product?** **Delete the icon, the bo
 - [ ] No raw colours, arbitrary values, margins or `space-*`; padding symmetric; `absolute` only in `relative`.
 - [ ] Built from shared components; nothing appearance-related hand-rolled in the page.
 - [ ] Every state designed: skeleton, empty, error, offline, long data.
+- [ ] Every action acknowledged within ~100ms; no full-page blocking; failures keep input and offer retry; checked on a throttled network ([14](14-motion-and-feedback.md)).
 - [ ] Copy plain and specific; statuses explained; numbers checked and formatted (tabular figures).
 - [ ] Contrast AA in light and dark; focus visible; keyboard works; reduced motion respected.
 - [ ] Seen in a browser at phone and desktop width, light and dark; no horizontal scroll; screenshots taken.

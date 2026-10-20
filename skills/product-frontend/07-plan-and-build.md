@@ -60,7 +60,7 @@ Keep it plain: "Payouts waiting for approval: 4" beats "actionable KPI surface".
 2. Decide what the screen answers; cut what doesn't serve it; fold what's rarely needed (show what's being worked on, collapse the rest).
 3. Map every element to a component; build or extend missing ones first (never hand-roll in the page).
 4. Compose: one primary action in the header; secondary forms in dialogs or sheets; long forms become pages with sections, not giant modals.
-5. Design every state: skeleton, empty, error, offline, long values, many rows, zero rows.
+5. Design every state: skeleton, empty, error, offline, long values, many rows, zero rows. Give every action instant feedback, optimistic where safe, and check the flows on a throttled network ([14](14-motion-and-feedback.md)).
 6. Wire data through the seam per the agreed rendering model ([05](05-architecture-and-data.md)): view state in the URL, writes validated on both sides. On a code-only track, steps 2–5 don't apply: keep the markup and classes identical and take before/after screenshots.
 7. Check permissions are unchanged (UI and server).
 8. **Verify in a browser** (a dev server only if the person agreed, on a non-default port; see [10](10-working-agreements.md)): phone (360 and 390px) and desktop (1280–1440px), light and dark, long formatted money, slow data. No horizontal scroll on the page. Screenshot.

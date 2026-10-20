@@ -86,7 +86,7 @@ The full rules with examples are in [09-layout-rules.md](09-layout-rules.md). Of
 - **Page centring with symmetric padding** computed from the max width (`px-page`: max(gutter, (100% − max-width)/2)), not `mx-auto max-w-*`.
 - **Colour, radius, shadow, type from role utilities only.** No raw hex/rgb/oklch, no arbitrary values. When the utility system can't express it, inline style reading a variable (`style={{ background: "var(--gradient-hero)" }}`). New need → new token.
 - **Density:** tools dense (body 14px, meta 12px, rows ~40px/36px compact); marketing generous.
-- **Motion:** token durations, ease-out, under 200ms, transform and opacity only, explains origin, respects reduced motion. Hide-until-JS reveals must fail visible.
+- **Motion and feedback** (full guide: [14-motion-and-feedback.md](14-motion-and-feedback.md)): token durations, ease-out, under 200ms, transform and opacity only, explains origin, respects reduced motion. Hide-until-JS reveals must fail visible.
 - **Optical alignment wins** where maths looks wrong (an icon beside text, a rounded shape beside a square) — the one place symmetry yields, with a comment.
 - **Dates and numbers through shared formatters** (one timezone, grouped figures, compact money, tabular numerals); never ad-hoc formatting in a screen.
 

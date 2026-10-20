@@ -107,6 +107,7 @@ Plans, decisions and progress are saved in your project's docs (`docs/design/` b
 | [11-related-skills.md](skills/product-frontend/11-related-skills.md) | Finding other skills that fit your stack |
 | [12-reference-cases.md](skills/product-frontend/12-reference-cases.md) | The real projects behind the rules |
 | [13-ui-styles.md](skills/product-frontend/13-ui-styles.md) | UI styles, what each suits, and where to find references |
+| [14-motion-and-feedback.md](skills/product-frontend/14-motion-and-feedback.md) | Instant feedback, optimistic updates, loading, slow and offline networks, motion |
 
 ---
 
