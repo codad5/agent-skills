@@ -47,7 +47,7 @@ Every later question depends on it.
 Ask what's bothering them, then offer levers, each with your read of whether it'd help *here*:
 
 1. **Colour.** "Keep the colours, refine them, or let me suggest a palette?" If refine/suggest: propose a role-based ramp instead of one flat colour — for example, not one purple everywhere but a set with jobs: a deep step for the primary action, a pale tint for selected rows and emphasis panels, a mid step for focus and links, a near-neutral tinted grey for surfaces. Show it (Phase 2).
-2. **Surfaces.** "Separate panels by tone (soft canvas, white panels, grey wells) or by hairline borders?" Recommend from what they have: a bordered UI with inconsistent weights usually needs a border system, not removal.
+2. **Surfaces.** "Separate panels by tone (soft canvas, white panels, grey wells), by tone with hairlines only inside dense tables, or by hairline borders?" Recommend from what they have: a bordered UI with inconsistent weights usually needs a border system, not removal.
 3. **Type.** Hierarchy (size, weight and three text colours), a display face for titles and headline numbers, tabular figures for amounts.
 4. **Density and spacing.** Tighter tables, deliberate rhythm (tight in a group, wide between sections).
 5. **Life.** Skeletons, motion that explains (under 200ms), hover states, empty states that teach.
@@ -66,7 +66,7 @@ Ask the ones Phase 0 left open. Each lists why it matters and a good default to 
 5. **Brand constraints.** Fixed logo colours, fonts, existing site. Confirm against the actual logo files, not memory. *Default:* keep the brand hue, fix contrast with a deeper step.
 6. **Colour strategy.** Monochrome (colour from content), one rationed accent, one sharp accent plus subtle ones, a meaning-assigned tint set, colour blocks. Which colours must stay off-brand (status, data, third-party tiles)? *Default for tools:* one rationed accent — the primary action, active nav, focus, good data — and separate status colours.
 7. **Light, dark or both; default?** *Default:* both, following the system; dark as its own designed palette, never the light one inverted with brand hue on every surface.
-8. **Surfaces and lines.** Tonal (canvas → surface → sunken wells, borders only for row dividers) or bordered (a hairline system on a measured ladder)? Radius by role? *Default:* follow the brand's existing site.
+8. **Surfaces and lines.** Tonal, almost borderless (canvas → surface → sunken wells, borders only for row dividers), somewhat borderless (tone for areas, hairlines only inside dense tables and lists) or bordered (a hairline system on a measured ladder)? Radius by role? *Default:* follow the brand's existing site; the hybrid suits screens that mix calm overviews with dense data. All three can look excellent; see [06](06-design-system.md) §2.
 9. **Type.** One family or a pairing (UI face + display face)? A signature device? Self-hosted? *Default:* a UI face legible at 12–14px with real tabular figures, a display face only for titles and headline numbers; avoid the default face of every generated UI unless the brand uses it.
 10. **Density.** Per surface. *Default:* tools dense (14px body, ~40px table rows), marketing generous.
 11. **Motion and playfulness.** How much? Must content work with JS off (marketing)? *Default:* motion only to explain where something came from, under 200ms, reduced-motion respected, content visible if JS fails.

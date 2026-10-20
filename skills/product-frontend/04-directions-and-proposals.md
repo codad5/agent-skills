@@ -8,7 +8,7 @@ A direction is a set of decisions that work together, with a name and a one-line
 
 - **Feel:** calm/dense vs friendly/colourful vs bold/editorial.
 - **Colour strategy** (below) and the actual palette.
-- **Surfaces:** tonal or bordered, radius by role, depth (shadow, hairline, offset frame).
+- **Surfaces:** tonal (almost borderless), hybrid or bordered, radius by role, depth (shadow, hairline, offset frame).
 - **Type:** UI face, display face, scale, figures.
 - **Density and rhythm.**
 - **Signature element:** the one thing that makes it this product (an activity heatmap, a numeral style, an offset frame on primary cards, numbered marketing sections).
