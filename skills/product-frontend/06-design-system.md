@@ -48,6 +48,18 @@ tokens/
 - hairlines between rows, not a box around every block;
 - on true black, borders replace shadows (dark shadows vanish, light ones glow).
 
+**Worked example: why one product uses borders and another doesn't** (OKLCH lightness from two real token sets):
+
+| | Bordered, true-black creative tool | Tonal, light ops console |
+|---|---|---|
+| Canvas → panel → raised | 0% → 17.8% → 22.3% | soft grey → 100% (white) → wells at 97.2% |
+| Border | 29%: a step above every surface, so one hairline reads on all of them | 91.8%: used only for row dividers |
+| Neutrals | tinted toward the yellow accent (hue ~90, chroma ≤ 0.011) | tinted toward the mint brand (hue 170, chroma ≤ 0.005) |
+| Depth | no shadows (invisible on black); borders do the job | tone does the job; one soft shadow only on menus and dialogs |
+| Why it fits | the content (video) is the colour; structure must stay visible on black | calm all-day work; matches the soft marketing site |
+
+More styles and where each fits: [13-ui-styles.md](13-ui-styles.md).
+
 Either way: **radius by role** (pills for pressables, a smaller radius for inputs and wells, larger for panels) and **depth from one consistent mechanism**. Check border and control contrast in light and dark separately: a border 9–10 lightness points off near-white is hard to see even when dark mode is fine.
 
 ## 3. Components
