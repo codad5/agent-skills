@@ -51,6 +51,10 @@ Whatever the strategy, build **ramps with roles, not single colours.** For a pur
 
 Explain the recommendation in the person's terms: "one purple everywhere makes every element compete; a ramp with jobs makes the important thing obvious and the rest calm."
 
+## Where directions come from
+
+Start from the styles in [13-ui-styles.md](13-ui-styles.md) that fit the app type and the answers, then ground each in real products: the person's screenshots first, otherwise references you find (that file lists where to look and how to access them).
+
 ## Decoding screenshots and references
 
 When the person sends screenshots or names products, extract, don't copy:
