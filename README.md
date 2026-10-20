@@ -30,9 +30,27 @@ Install them all at once with `npx skills add codad5/agent-skills`.
 
 ### Or let your agent set it up
 
-Paste this into your agent, inside the project:
+Copy this into your agent as it is: nothing to fill in. Add a skill name at the end if you already know which one you want; leave it off and the agent will help you choose.
 
-> Install the `<skill-name>` skill from https://github.com/codad5/agent-skills into this project by running `npx skills add codad5/agent-skills --skill <skill-name> -a <your agent> -y`. If `npx` isn't available, clone the repo and copy `skills/<skill-name>/` into this project's skills folder (`.claude/skills/` for Claude Code, `.agents/skills/` for most others). Then read its `SKILL.md` and tell me in two lines what it does and what you need from me to start.
+```text
+Set up a skill for me from https://github.com/codad5/agent-skills.
+
+1. Run `npx skills add codad5/agent-skills --list` to see every skill in the repo with
+   its description. If npx isn't available, read the repo's README and each
+   skills/*/SKILL.md instead.
+2. If I named a skill below, use it. If I didn't, show me the list in one line per
+   skill, ask what I want to get done, and recommend the skill that fits best with
+   one line on why. Wait for my answer.
+3. Work out which agent you are and install the chosen skill for this folder only:
+   `npx skills add codad5/agent-skills --skill <chosen skill> -a <your agent id> -y`
+   (claude-code, cursor, codex, gemini-cli, github-copilot, windsurf or opencode).
+   Without npx, clone the repo and copy skills/<chosen skill>/ into this folder's
+   skills directory (.claude/skills/ for Claude Code, .agents/skills/ for most others).
+4. Read the installed SKILL.md and tell me in two lines what it does, what it needs
+   from me (tools, files, permissions) and whether I should start a new session.
+
+Skill (optional):
+```
 
 ---
 
