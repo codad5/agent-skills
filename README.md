@@ -7,6 +7,7 @@ Open-source skills for AI coding agents (Claude Code, Cursor, Codex, Gemini CLI,
 | Skill | What it does |
 |---|---|
 | [`product-frontend`](skills/product-frontend/SKILL.md) | Plans and builds the everyday parts of a product's frontend, both how it looks and how it works: dashboards, admin tools, chat apps, settings, forms, marketing pages. It reads the codebase first, works out whether the real problem is the UI, the code underneath or both, asks only the questions that decide the outcome, sizes the effort options from your own pace, writes a phased plan for your approval, then builds and verifies. It is **not** for showpiece work: games, 3D, heavy animation or experimental interactive art. |
+| [`job-search`](skills/job-search/SKILL.md) | Searches live job boards and company career pages (it never applies), filters listings against your real constraints (location, visa, pay floor, role fit), and writes a shortlist for you to prune. Then, for each job you approve, it writes one doc: how to apply, every form question answered, a tailored resume and cover letter, an ATS keyword check and an honest fit score. Needs a browser tool. |
 
 ## Install
 
@@ -23,6 +24,10 @@ npx skills add codad5/agent-skills --skill product-frontend -a claude-code
 
 # for every project on this machine
 npx skills add codad5/agent-skills --skill product-frontend -g
+
+# the job search skill, or both at once
+npx skills add codad5/agent-skills --skill job-search
+npx skills add codad5/agent-skills
 ```
 
 Check what you have installed with `npx skills list`.
