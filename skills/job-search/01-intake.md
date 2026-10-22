@@ -1,6 +1,6 @@
 # Phase 1 — Intake
 
-Ask these before searching anything, unless an existing persona or profile doc for this person already answers a given item (reuse it, don't re-ask). Keep this to one focused round of questions where possible — use `AskUserQuestion` for the ones with clean multiple-choice answers, free text for the rest.
+Ask these before searching anything, unless an existing persona or profile doc for this person (such as the `social-optimization` dossier) already answers a given item (reuse it, don't re-ask). Keep this to one focused round of questions where possible — use `AskUserQuestion` for the ones with clean multiple-choice answers, free text for the rest.
 
 ## Required fields
 

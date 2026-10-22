@@ -8,6 +8,7 @@ Open-source skills for AI coding agents: Claude Code, Cursor, Codex, Gemini CLI,
 |---|---|---|
 | [`product-frontend`](#product-frontend) | Everyday product UI and the code behind it: dashboards, admin tools, chat apps, forms, marketing pages | `npx skills add codad5/agent-skills --skill product-frontend` |
 | [`job-search`](#job-search) | Finding real job listings and preparing every application (it never applies for you) | `npx skills add codad5/agent-skills --skill job-search` |
+| [`social-optimization`](#social-optimization) | Auditing and improving your professional profiles: LinkedIn, GitHub, X, Instagram, portfolio site | `npx skills add codad5/agent-skills --skill social-optimization` |
 
 See every skill in the repo, with descriptions, without installing anything:
 
@@ -20,7 +21,7 @@ Install them all at once with `npx skills add codad5/agent-skills`.
 ## Before you start
 
 - **Node.js 22 or newer**, for `npx`. That's all: no account, no login, no config. The repo is public.
-- Run the command **inside the folder you want the skill in**: your project for `product-frontend`, or your job-search working folder for `job-search`.
+- Run the command **inside the folder you want the skill in**: your project for `product-frontend`, or your job-search working folder for `job-search`, or your portfolio or notes folder for `social-optimization`.
 - Useful flags:
   - `-a claude-code` installs for one agent and skips the agent prompt (other values include `cursor`, `codex`, `gemini-cli`, `github-copilot`).
   - `-g` installs for every project on this machine instead of just this folder.
@@ -154,6 +155,52 @@ npx skills add codad5/agent-skills --skill job-search -a claude-code
 | [02-shortlist.md](skills/job-search/02-shortlist.md) | Searching, filtering, the shortlist |
 | [03-per-job-doc.md](skills/job-search/03-per-job-doc.md) | The per-job document template |
 | [04-resume-and-ats.md](skills/job-search/04-resume-and-ats.md) | Tailoring resumes and ATS-safe PDFs |
+
+---
+
+## social-optimization
+
+Audits and improves a person's professional presence: LinkedIn, GitHub, X, Instagram and their portfolio site. It researches who the person actually is before writing a word and builds a private dossier: their own words, their stated preferences, and an inconsistency table across platforms. It drafts every change for approval, then works through one platform at a time, re-checking each save after a fresh reload. Banners are built as HTML and rendered, never AI-generated.
+
+**It asks before** visiting your logged-in profiles, before asking your own AI assistants about you, and before every live edit. It never invents numbers, never takes credit that belongs to someone else, and never posts new content or messages anyone.
+
+### Set up
+
+```sh
+cd your-portfolio-or-notes-folder
+npx skills add codad5/agent-skills --skill social-optimization -a claude-code
+```
+
+**Needed:**
+- **a browser tool** for the agent (Claude Code's built-in browser, a Playwright MCP server, or the Claude in Chrome extension), ideally with you logged in to the platforms in that browser.
+
+**Recommended:**
+- your resume or CV and any existing bio text in the folder;
+- `.tmp/` in your `.gitignore`. The private dossier and drafts live there and must never be committed.
+
+### What to do next
+
+1. Open a new agent session in the folder.
+2. Ask: "Optimise my LinkedIn", "Audit my personal brand", or type `/social-optimization` in Claude Code.
+3. Approve the research steps it asks about, then answer its questions about how you want to be described (your own label, who drove which results, what to feature).
+4. Review the drafted copy before anything goes live.
+5. Approve each platform pass. It works through them in order: LinkedIn, GitHub, X, Instagram, then your site.
+6. Get a final checklist: what's done and re-verified, what you need to do by hand and why, and what it recommends but didn't apply.
+
+Its dossier works with `job-search` too: that skill reads it instead of asking the same questions again.
+
+### Files
+
+| File | What it covers |
+|---|---|
+| [SKILL.md](skills/social-optimization/SKILL.md) | Order of phases, hard rules, where files go |
+| [01-research-identity.md](skills/social-optimization/01-research-identity.md) | Researching the person and writing the dossier |
+| [02-linkedin.md](skills/social-optimization/02-linkedin.md) | LinkedIn: order of work and known gotchas |
+| [03-github.md](skills/social-optimization/03-github.md) | GitHub profile, pinned repos, README widgets |
+| [04-x-twitter.md](skills/social-optimization/04-x-twitter.md) | X: name, bio, photo and banner, tone |
+| [05-instagram.md](skills/social-optimization/05-instagram.md) | Instagram, as optional polish |
+| [06-portfolio-site.md](skills/social-optimization/06-portfolio-site.md) | Keeping the site's story consistent with the profiles |
+| [07-banner-generation.md](skills/social-optimization/07-banner-generation.md) | Building banners as HTML and rendering them |
 
 ---
 
